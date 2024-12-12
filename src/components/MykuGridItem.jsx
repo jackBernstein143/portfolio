@@ -137,9 +137,9 @@ const MykuGridItem = ({ isFlipped, onFlip }) => {
         max_tokens: 60
       }, {
         headers: {
-          'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY}`,
-          'Content-Type': 'application/json'
-        }
+            'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
+            'Content-Type': 'application/json'
+          }
       });
 
       let haikuText = response.data.choices[0].message.content.trim();
