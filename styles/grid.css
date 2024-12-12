@@ -1,0 +1,11 @@
+.grid-cell {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.grid-cell:hover {
+  transform: scale(1.02);
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+} 
