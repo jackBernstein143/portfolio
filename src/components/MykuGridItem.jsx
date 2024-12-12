@@ -114,37 +114,33 @@ const MykuGridItem = ({ isFlipped, onFlip }) => {
 
   const generateHaikuFromImage = async (imageDataUrl) => {
     try {
-      const response = await axios.post(
-        'https://api.openai.com/v1/chat/completions',
-        {
-          model: "gpt-4-vision-preview",
-          messages: [
-            {
-              role: "user",
-              content: [
-                { 
-                  type: "text", 
-                  text: "Generate a haiku very specifically based on this image capturing the little details. Make it cute and fun. Return exactly 3 lines separated by newlines, following the 5-7-5 syllable pattern:" 
-                },
-                {
-                  type: "image_url",
-                  image_url: {
-                    url: imageDataUrl,
-                    detail: "low"
-                  }
+      const response = await axios.post('https://api.openai.com/v1/chat/completions', {
+        model: "gpt-4o",
+        messages: [
+          {
+            role: "user",
+            content: [
+              { 
+                type: "text", 
+                text: "Generate a haiku very specifically based on this image capturing the little details. Make it cute and fun. Return exactly 3 lines separated by newlines, following the 5-7-5 syllable pattern:" 
+              },
+              {
+                type: "image_url",
+                image_url: {
+                  url: imageDataUrl,
+                  detail: "low"
                 }
-              ]
-            }
-          ],
-          max_tokens: 60
-        },
-        {
-          headers: {
+              }
+            ]
+          }
+        ],
+        max_tokens: 60
+      }, {
+        headers: {
             'Authorization': `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
             'Content-Type': 'application/json'
           }
-        }
-      );
+      });
 
       let haikuText = response.data.choices[0].message.content.trim();
       let lines = haikuText.split('\n').filter(line => line.trim() !== '');
