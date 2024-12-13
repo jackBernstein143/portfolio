@@ -90,7 +90,7 @@ function App() {
             </div>
           )}
 
-          <small style={{ opacity: 0.7 }}>
+          <small style={{ opacity: 0.7, marginTop: '36px', display: 'block' }}>
             Made with care by Jack Bernstein
           </small>
         </footer>

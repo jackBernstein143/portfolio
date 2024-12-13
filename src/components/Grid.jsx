@@ -459,7 +459,7 @@ const Grid = () => {
           <h2 style={{
             fontSize: 'clamp(1rem, 6cqi, 1.5rem)',
             marginBottom: 'clamp(0.5rem, 3cqi, 1rem)'
-          }}>My time at Snap ��</h2>
+          }}>My time at Snap 🫰</h2>
           <p 
             onMouseEnter={() => {
               const gif = document.getElementById('hover-gif');
